@@ -1,8 +1,8 @@
 
 package inter;
 
+import symbols.Type;
 import analizadorLexico.*;
-import simbolos.*;
 
 public class Arit extends Op{
     public Expr exprl, expr2;
@@ -11,7 +11,7 @@ public class Arit extends Op{
         super(tok, null);
         exprl = xl;
         expr2 = x2;
-        tipo = Tipo.max(exprl.tipo, expr2.tipo);
+        tipo = Type.max(exprl.tipo, expr2.tipo);
         if (tipo == null ) error("error de tipo");
     }
     

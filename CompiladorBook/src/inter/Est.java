@@ -2,8 +2,8 @@
 package inter;
 
 
+import symbols.Type;
 import analizadorLexico.*;
-import simbolos.*;
 
 public class Est extends Instr{
     public Id id;
@@ -15,9 +15,9 @@ public class Est extends Instr{
             error("error de tipo");
     }
     
-    public Tipo comprobar(Tipo p1, Tipo p2){
-        if(Tipo.numerico(p1) && Tipo.numerico(p2)) return p2;
-        else if(p1 == Tipo.Bool && p2 == Tipo.Bool)return p2;
+    public Type comprobar(Type p1, Type p2){
+        if(Type.numerico(p1) && Type.numerico(p2)) return p2;
+        else if(p1 == Type.Bool && p2 == Type.Bool)return p2;
         else return null;
     }
     

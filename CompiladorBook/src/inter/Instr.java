@@ -1,7 +1,7 @@
 
 package inter;
 
-public class Instr extends Nodo{
+public class Instr extends Node{
 
     public Instr() {
     }

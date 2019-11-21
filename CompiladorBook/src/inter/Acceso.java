@@ -1,13 +1,13 @@
 
 package inter;
 
+import symbols.Type;
 import analizadorLexico.*;
-import simbolos.*;
 
 public class Acceso extends Op{
     public Id arreglo;
     public Expr indice;
-    public Acceso(Id a, Expr i, Tipo p){
+    public Acceso(Id a, Expr i, Type p){
         super(new Palabra("□", Etiqueta.INDEX), p); // aplanarelarreglo
         arreglo = a;
         indice = i;
