@@ -1,9 +1,9 @@
 
 package analizadorLexico;
 
+import symbols.Type;
 import java.io.*;
 import java.util.*;
-import simbolos.*;
 
 public class AnalizadorLexico {
     public static int linea = 1;
@@ -22,10 +22,10 @@ public class AnalizadorLexico {
         reservar (new Palabra("break", Etiqueta.BREAK));
         reservar (Palabra.True);
         reservar(Palabra.False);
-        reservar(Tipo.Int);
-        reservar(Tipo.Char);
-        reservar(Tipo.Bool);
-        reservar(Tipo.Float);
+        reservar(Type.Int);
+        reservar(Type.Char);
+        reservar(Type.Bool);
+        reservar(Type.Float);
     }
     
     void readch() throws IOException{

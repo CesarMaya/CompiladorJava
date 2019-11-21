@@ -1,7 +1,7 @@
 
 package inter;
 
-import simbolos.*;
+import symbols.Type;
 
 public class Else extends Instr{
     Expr expr;
@@ -11,7 +11,7 @@ public class Else extends Instr{
         expr = x;
         instr1 = s1;
         instr2 = s2;
-        if(expr.tipo != Tipo.Bool)
+        if(expr.tipo != Type.Bool)
             expr.error("se requiere booleano en if");
     }
     

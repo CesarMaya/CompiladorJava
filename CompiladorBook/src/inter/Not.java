@@ -2,7 +2,6 @@
 package inter;
 
 import analizadorLexico.*;
-import simbolos.*;
 
 public class Not extends Logica{
     

@@ -1,8 +1,8 @@
 
 package inter;
 
+import symbols.Type;
 import analizadorLexico.*;
-import simbolos.*;
 
 public class Logica extends Expr{
     public Expr exprl, expr2;
@@ -14,9 +14,9 @@ public class Logica extends Expr{
         if(tipo == null)
             error("errordetipo");
     }
-    public Tipo comprobar(Tipo p1, Tipo p2){
-        if(p1 == Tipo.Bool && p2 == Tipo.Bool)
-            return Tipo.Bool;
+    public Type comprobar(Type p1, Type p2){
+        if(p1 == Type.Bool && p2 == Type.Bool)
+            return Type.Bool;
         else return null;
     }
     

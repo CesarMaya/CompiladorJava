@@ -1,12 +1,12 @@
 
 package inter;
 
+import symbols.Type;
 import analizadorLexico.*;
-import simbolos.*;
 
 public class Op extends Expr{
     
-    public Op(Token tok, Tipo p) {
+    public Op(Token tok, Type p) {
         super(tok, p);
     }
     

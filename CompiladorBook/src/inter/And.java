@@ -2,7 +2,6 @@
 package inter;
 
 import analizadorLexico.*;
-import simbolos.*;
 
 public class And extends Logica{
     public And(Token tok, Expr xl, Expr x2){

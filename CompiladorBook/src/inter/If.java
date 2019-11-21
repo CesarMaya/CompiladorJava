@@ -1,7 +1,7 @@
 
 package inter;
 
-import simbolos.*;
+import symbols.Type;
 
 public class If extends Instr{
     Expr expr;
@@ -10,7 +10,7 @@ public class If extends Instr{
     public If(Expr x, Instr s){
         expr = x;
         instr = s;
-        if(expr.tipo != Tipo.Bool)
+        if(expr.tipo != Type.Bool)
             expr.error("se requiere booleano en if");
     }
     

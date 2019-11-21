@@ -1,13 +1,13 @@
 
 package inter;
 
+import symbols.Type;
 import analizadorLexico.*;
-import simbolos.*;
 
-public class Expr extends Nodo{
+public class Expr extends Node{
     public  Token op;
-    public Tipo  tipo;
-    Expr (Token tok, Tipo p){
+    public Type  tipo;
+    Expr (Token tok, Type p){
         op = tok;
         tipo = p;
     }

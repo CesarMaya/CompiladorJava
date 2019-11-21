@@ -1,8 +1,9 @@
 
 package inter;
 
+import symbols.Type;
+import symbols.Array;
 import analizadorLexico.*;
-import simbolos.*;
 
 public class EstElem extends Instr{
     public Id arreglo;
@@ -17,10 +18,10 @@ public class EstElem extends Instr{
             error("errordetipo");
     }
     
-    public Tipo comprobar(Tipo p1, Tipo p2){
-        if(p1 instanceof Arreglo || p2 instanceof Arreglo) return null;
+    public Type comprobar(Type p1, Type p2){
+        if(p1 instanceof Array || p2 instanceof Array) return null;
         else if(p1 == p2) return p2;
-        else if(Tipo.numerico(p1) && Tipo.numerico(p2)) return p2;
+        else if(Type.numerico(p1) && Type.numerico(p2)) return p2;
         else return null;
     }
     public void gen(int b, int a){

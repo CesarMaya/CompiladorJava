@@ -1,7 +1,7 @@
 
 package inter;
 
-import simbolos.*;
+import symbols.Type;
 
 public class While extends Instr{
     Expr expr;
@@ -15,7 +15,7 @@ public class While extends Instr{
     public void inic(Expr x, Instr s){
         expr = x;
         instr = s;
-        if(expr.tipo != Tipo.Bool)
+        if(expr.tipo != Type.Bool)
             expr.error("se requiere booleano en while");
     }
     

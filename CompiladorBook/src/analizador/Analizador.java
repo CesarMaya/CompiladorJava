@@ -2,15 +2,17 @@
 package analizador;
 
 
+import symbols.Type;
+import symbols.Env;
+import symbols.Array;
 import java.io.*;
 import analizadorLexico.*;
-import simbolos.*;
 import inter.*;
 
 public class Analizador {
     private AnalizadorLexico lex;
     private Token busca;
-    Ent sup = null;
+    Env sup = null;
     int usado = 0;
     
     public Analizador(AnalizadorLexico l) throws IOException{
@@ -42,8 +44,8 @@ public class Analizador {
 
     Instr bloque() throws IOException{//bloque-}{decísinstrs}
         coincidir('{');
-        Ent entGuardado = sup;
-        sup = new Ent(sup);
+        Env entGuardado = sup;
+        sup = new Env(sup);
         decls();
         Instr s = instrs();
         coincidir('}');
@@ -53,7 +55,7 @@ public class Analizador {
     
     void decls() throws IOException{
         while(busca.etiqueta == Etiqueta.BASIC){//D-}tipoID;
-            Tipo p = tipo();
+            Type p = tipo();
             Token tok = busca;
             coincidir(Etiqueta.ID);
             coincidir(';');
@@ -63,21 +65,21 @@ public class Analizador {
         }
     }
     
-    Tipo tipo() throws IOException{
-        Tipo p = (Tipo)busca;
+    Type tipo() throws IOException{
+        Type p = (Type)busca;
         coincidir(Etiqueta.BASIC);
         if(busca.etiqueta != '[') return p;
         else return dims(p);
     }
     
-    Tipo dims(Tipo p) throws IOException{
+    Type dims(Type p) throws IOException{
         coincidir('[');
         Token tok = busca;
         coincidir(Etiqueta.NUM);
         coincidir(']');
         if(busca.etiqueta == '[')
             p = dims(p);
-        return new Arreglo(((Num) tok).valor, p);
+        return new Array(((Num) tok).valor, p);
     }
 
     Instr instrs() throws IOException{
@@ -246,11 +248,11 @@ public class Analizador {
                 coincidir(')');
                 return x;
             case Etiqueta.NUM:
-                x = new Constante(busca, Tipo.Int);
+                x = new Constante(busca, Type.Int);
                 mover();
                 return x;
             case Etiqueta.REAL:
-                x = new Constante(busca, Tipo.Float);
+                x = new Constante(busca, Type.Float);
                 mover();
                 return x;
             case Etiqueta.TRUE:
@@ -279,11 +281,11 @@ public class Analizador {
         Expr w;
         Expr t1, t2;
         Expr ubic;
-        Tipo tipo = a.tipo;
+        Type tipo = a.tipo;
         coincidir('[');
         i = bool();
         coincidir(']');//primerÍndice, I = }[E]
-        tipo = ((Arreglo) tipo).de;
+        tipo = ((Array) tipo).de;
         w = new Constante(tipo.anchura);
         t1 = new Arit(new Token('*'), i, w);
         ubic = t1;
@@ -291,7 +293,7 @@ public class Analizador {
             coincidir('[');
             i = bool();
             coincidir('[');
-            tipo = ((Arreglo) tipo).de;
+            tipo = ((Array) tipo).de;
             w = new Constante(tipo.anchura);
             t1 = new Arit(new Token('*'), i, w);
             t2 = new Arit(new Token('+'), ubic, t1);

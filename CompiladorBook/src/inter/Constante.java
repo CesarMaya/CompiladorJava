@@ -1,22 +1,22 @@
 
 package inter;
 
+import symbols.Type;
 import analizadorLexico.*;
-import simbolos.*;
 
 public class Constante extends Expr{
     
-    public Constante(Token tok, Tipo p) {
+    public Constante(Token tok, Type p) {
         super(tok, p);
     }
     
     public Constante(int i){
-        super(new Num(i), Tipo.Int);
+        super(new Num(i), Type.Int);
     }
 
     public static final Constante
-    True = new Constante(Palabra.True, Tipo.Bool), 
-    False = new Constante(Palabra.False, Tipo.Bool);
+    True = new Constante(Palabra.True, Type.Bool), 
+    False = new Constante(Palabra.False, Type.Bool);
     
     public void salto(int t, int f){
         if(this == True && t != 0)
