@@ -1,21 +1,21 @@
 
 package inter;
 
-import symbols.Type;
 import analizadorLexico.*;
+import symbols.*;
 
-public class Unario extends Op{
+public class Unary extends Op{
     public Expr expr;
 
-    public Unario(Token tok, Expr x) {
+    public Unary(Token tok, Expr x) {
         super(tok, null);
         expr = x;
-        tipo = Type.max(Type.Int, expr.tipo);
-        if(tipo == null) error("error de tipo");
+        type = Type.max(Type.Int, expr.type);
+        if(type == null) error("error de tipo");
     }
     
     public Expr gen(){
-        return new Unario(op, expr.reducir());
+        return new Unary(op, expr.reduce());
     }
     
     public String toString(){

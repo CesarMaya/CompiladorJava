@@ -211,7 +211,7 @@ public class Analizador {
         while(busca.etiqueta == '+' || busca.etiqueta == '-'){
             Token tok = busca;
             mover();
-            x = new Arit(tok, x, term());
+            x = new Arith(tok, x, term());
         }
         return x;
     }
@@ -221,7 +221,7 @@ public class Analizador {
         while(busca.etiqueta == '*' || busca.etiqueta == '/'){
             Token tok = busca;
             mover();
-            x = new Arit(tok, x, unario());
+            x = new Arith(tok, x, unario());
         }
         return x;
     }
@@ -229,7 +229,7 @@ public class Analizador {
     Expr unario() throws IOException{
         if(busca.etiqueta == '-'){
             mover();
-            return new Unario(Palabra.minus, unario());
+            return new Unary(Palabra.minus, unario());
         }
         else if(busca.etiqueta ==  '!'){
             Token tok = busca;
@@ -287,7 +287,7 @@ public class Analizador {
         coincidir(']');//primerÍndice, I = }[E]
         tipo = ((Array) tipo).de;
         w = new Constante(tipo.anchura);
-        t1 = new Arit(new Token('*'), i, w);
+        t1 = new Arith(new Token('*'), i, w);
         ubic = t1;
         while(busca.etiqueta ==  '['){//multi = dimens1onalI = }[E]I
             coincidir('[');
@@ -295,8 +295,8 @@ public class Analizador {
             coincidir('[');
             tipo = ((Array) tipo).de;
             w = new Constante(tipo.anchura);
-            t1 = new Arit(new Token('*'), i, w);
-            t2 = new Arit(new Token('+'), ubic, t1);
+            t1 = new Arith(new Token('*'), i, w);
+            t2 = new Arith(new Token('+'), ubic, t1);
             ubic = t2;
         }
         return new Acceso(a, ubic, tipo);

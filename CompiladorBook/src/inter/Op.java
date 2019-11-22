@@ -1,8 +1,8 @@
 
 package inter;
 
-import symbols.Type;
-import analizadorLexico.*;
+import lexer.*;
+import symbols.*;
 
 public class Op extends Expr{
     
@@ -10,10 +10,10 @@ public class Op extends Expr{
         super(tok, p);
     }
     
-    public Expr reducir() {
+    public Expr reduce() {
         Expr x = gen();
-        Temp t = new Temp(tipo);
-        emitir(t.toString() + " = " + x.toString());
+        Temp t = new Temp(type);
+        emit( t.toString() + " = " + x.toString());
         return t;
     }
 }

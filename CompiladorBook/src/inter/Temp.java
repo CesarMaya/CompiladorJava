@@ -1,19 +1,19 @@
 
 package inter;
 
-import symbols.Type;
-import analizadorLexico.*;
+import lexer.*;
+import symbols.*;
 
 public class Temp extends Expr{
-    static int conteo = 0;
-    int numero = 0;
+    static int count = 0;
+    int number = 0;
     
     public Temp(Type p) {
-        super(Palabra.temp, p);
-        numero = ++conteo;
+        super(Word.temp, p);
+        number = ++count;
     }
     
     public String toString(){
-        return "t " + numero;
+        return "t " + number;
     }
 }

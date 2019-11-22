@@ -1,15 +1,14 @@
 
 package inter;
 
-import symbols.Type;
-import analizadorLexico.*;
+import lexer.*;
+import symbols.*;
 
 public class Id extends Expr{
-    public int desplazamiento;
+    public int offset;
     
-    public Id(Palabra id, Type p, int b) {
+    public Id(Word id, Type p, int b) {
         super(id, p);
-        desplazamiento = b;
+        offset = b;
     }
-    
 }
