@@ -4,7 +4,7 @@ package inter;
 import lexer.*;
 
 public class Node {
-    int lex=0;
+    int lexline = 0;
     Node(){ linealex = AnalizadorLexico.linea; }
     
     void error(String s){throw new Error("cerca de la linea" + linealex + ":" + s); }
