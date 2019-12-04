@@ -1,7 +1,7 @@
 
 package compiladorbook;
+import lexer.AnalizadorLexico;
 import java.io.*;
-import analizadorLexico.*;
 import analizador.* ;
 /**
  *

@@ -1,8 +1,10 @@
 
 package inter;
 
+import lexer.Num;
+import lexer.Palabra;
+import lexer.Token;
 import symbols.Type;
-import analizadorLexico.*;
 
 public class Constante extends Expr{
     

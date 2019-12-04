@@ -3,7 +3,6 @@ package inter;
 
 import symbols.Type;
 import symbols.Array;
-import analizadorLexico.*;
 
 public class EstElem extends Instr{
     public Id arreglo;

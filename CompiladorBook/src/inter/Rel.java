@@ -1,9 +1,9 @@
 
 package inter;
 
+import lexer.Token;
 import symbols.Type;
 import symbols.Array;
-import analizadorLexico.*;
 
 public class Rel extends Logica{
     public Rel(Token tok, Expr xl, Expr x2){

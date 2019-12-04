@@ -1,8 +1,8 @@
 
 package inter;
 
+import lexer.Token;
 import symbols.Type;
-import analizadorLexico.*;
 
 public class Logica extends Expr{
     public Expr exprl, expr2;

@@ -1,8 +1,9 @@
 
 package inter;
 
+import lexer.Etiqueta;
+import lexer.Palabra;
 import symbols.Type;
-import analizadorLexico.*;
 
 public class Acceso extends Op{
     public Id arreglo;

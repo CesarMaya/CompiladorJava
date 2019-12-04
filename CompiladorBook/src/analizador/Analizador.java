@@ -2,11 +2,15 @@
 package analizador;
 
 
+import lexer.Etiqueta;
+import lexer.AnalizadorLexico;
+import lexer.Num;
+import lexer.Palabra;
+import lexer.Token;
 import symbols.Type;
 import symbols.Env;
 import symbols.Array;
 import java.io.*;
-import analizadorLexico.*;
 import inter.*;
 
 public class Analizador {

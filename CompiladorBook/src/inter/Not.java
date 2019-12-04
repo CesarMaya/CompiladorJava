@@ -1,7 +1,7 @@
 
 package inter;
 
-import analizadorLexico.*;
+import lexer.Token;
 
 public class Not extends Logica{
     

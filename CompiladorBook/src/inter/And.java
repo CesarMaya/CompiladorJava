@@ -1,7 +1,7 @@
 
 package inter;
 
-import analizadorLexico.*;
+import lexer.Token;
 
 public class And extends Logica{
     public And(Token tok, Expr xl, Expr x2){

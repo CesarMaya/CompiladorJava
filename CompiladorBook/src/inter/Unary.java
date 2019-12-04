@@ -1,7 +1,7 @@
 
 package inter;
 
-import analizadorLexico.*;
+import lexer.Token;
 import symbols.*;
 
 public class Unary extends Op{
